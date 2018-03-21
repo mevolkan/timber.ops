@@ -1,0 +1,100 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+  {% block head %}
+  {% endblock %}
+  </head>
+{% endblock %}
+
+    <body>
+      <div id="site__bg"></div>
+      <div class="main">
+
+
+<header class="header" >
+      {% block header %}
+        
+        <div class="wrapper">
+          <div class="logo nav__logo">
+            <a href="{{site.url}}"><img src="wp-content/themes/timber/assets/images/logo.svg" alt="logo"/></a>
+          </div>
+          
+        </div>
+      {% endblock %}
+
+      <nav role="navigation">
+          <ul class="nav__list">
+            <li class="nav__item"><a href="#">Episodes</a></li>
+          </ul>
+          <ul class="nav__list">
+            <li class="nav__item"><a href="#">Episodes</a></li>
+          </ul>
+            {% include "menu.twig" with {'menu': menu.get_items} %}
+         <!-- #nav -->
+          <ul class="nav__social">
+            <li><a href="#" class="nav_social__item"><i class="fab fa-google-play"></i></a></li>
+            <li><a href="#" class="nav_social__item"><i class="fab fa-itunes-note"></i></a></li>
+            <li><a href="#" class="nav_social__item"><i class="fas fa-rss-square"></i></a></li>
+          </ul>
+        </nav>
+    </header>
+
+ 
+        <section class="site">
+          <h1 class="site__title site__title--separator" role="banner"> <a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a></h1>
+          <p class="site__description">A podcast discussing the anything web related with the world’s experts</p>
+        </section>
+        <section class="episodes">
+          <article class="episode">
+            <h2 class="episode__number">01</h2>
+            <div class="episode__media">
+              <a href="detail.html" class="episode__image"></a>
+            </div>
+            <div class="episode__detail">
+              <a href="detail.html" class="episode__title"><h4>Linda Watkins</h4></a>
+              <p class="episode__description">Linda talks about how machine learning models can be used as effective substitutes for classic data structures.</p>
+            </div>
+          </article>
+          <article class="episode">
+            <h2 class="episode__number">02</h2>
+            <div class="episode__media">
+              <a href="detail.html" class="episode__image"></a>
+            </div>
+            <div class="episode__detail">
+              <a href="detail.html" class="episode__title"><h4>Dylan Perry</h4></a>
+              <p class="episode__description">Dylan talks to us about how he started programming, challenges he has faced and what keeps him hooked till this day.</p>
+            </div>
+          </article>
+
+
+
+{% for post in posts %}
+  <div class="content-wrapper">
+    <article class="episode post-type-{{post.post_type}}" id="post-{{post.ID}}">
+      <div class="episode__media">
+              <a href="{{ post.link}}" class="episode__image"></a>
+            </div>
+
+      <div class="article-content episode__detail">
+        <a href="{{ post.link}}" class="article-h1 episode__title">{{post.title}}</a>
+        <div class="article-body episode__description">
+          {{post.content}}
+        </div>
+      </div>
+    </article>
+  </div><!-- /content-wrapper -->
+{% endfor %}
+
+         
+        </section>
+      </div>
+
+
+{% block footer %}
+      <footer id="footer">
+        {% include 'footer.twig' %}
+      </footer>
+      {{ function('wp_footer') }}
+    {% endblock %}
+  </body>
+</html>
