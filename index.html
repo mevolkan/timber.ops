@@ -1,15 +1,3 @@
-{# {% extends "base.twig" %}
-
-{% block content %}
-	<h2>{{ foo }}</h2>
-	<p>{{ qux }}</p>
-	{% for post in posts %}
-		{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
-	{% endfor %}
-	
-	{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
-{% endblock %} #}
-
 <!doctype html>
 <html>
     <head>
@@ -17,7 +5,7 @@
       <meta name="description" content="Dropcast is a responsive HTML/CSS/Javascript template for podcasts">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>Dropcast - Podcast Template from Codrops</title>
-      <link rel="stylesheet" href="{{ theme.path }}/assets/css/dropcast.css">
+      <link rel="stylesheet" href="assets/css/dropcast.css">
       <link rel="author" href="Amie Chen for Codrops">
       <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Rufina:400,700|Source+Sans+Pro:200,300,400,600,700" rel="stylesheet">
@@ -44,19 +32,46 @@
           <p class="site__description">A podcast discussing the anything web related with the world’s experts</p>
         </section>
         <section class="episodes">
-        	{% for post in posts %}
           <article class="episode">
             <h2 class="episode__number">01</h2>
             <div class="episode__media">
               <a href="detail.html" class="episode__image"></a>
             </div>
             <div class="episode__detail">
-              <a href="{{ post.link }}" class="episode__title"><h4>{{ post.title }}</h4></a>
+              <a href="detail.html" class="episode__title"><h4>Linda Watkins</h4></a>
               <p class="episode__description">Linda talks about how machine learning models can be used as effective substitutes for classic data structures.</p>
             </div>
           </article>
-      {% endfor %}
-          
+          <article class="episode">
+            <h2 class="episode__number">02</h2>
+            <div class="episode__media">
+              <a href="detail.html" class="episode__image"></a>
+            </div>
+            <div class="episode__detail">
+              <a href="detail.html" class="episode__title"><h4>Dylan Perry</h4></a>
+              <p class="episode__description">Dylan talks to us about how he started programming, challenges he has faced and what keeps him hooked till this day.</p>
+            </div>
+          </article>
+          <article class="episode">
+            <h2 class="episode__number">03</h2>
+            <div class="episode__media">
+              <a href="detail.html" class="episode__image"></a>
+            </div>
+            <div class="episode__detail">
+              <a href="detail.html" class="episode__title"><h4>Olivia Valdez</h4></a>
+              <p class="episode__description">Olivia talks about how machine learning models can be used as effective substitutes for classic data structures.</p>
+            </div>
+          </article>
+          <article class="episode">
+            <h2 class="episode__number">04</h2>
+            <div class="episode__media">
+              <a href="detail.html" class="episode__image"></a>
+            </div>
+            <div class="episode__detail">
+              <a href="detail.html" class="episode__title"><h4>Samuel Chavezy</h4></a>
+              <p class="episode__description">Sam talks to us about how he started programming and what keeps him hooked till this day.</p>
+            </div>
+          </article>
         </section>
       </div>
       <footer>
@@ -65,6 +80,6 @@
           <a href="https://tympanus.net/codrops/"><img src="assets/images/logo-white.svg" alt="logo"/></a>
         </div>
       </footer>
-      <script src="{{ theme.path }}assets/js/dropcast.js"></script>
+      <script src="assets/js/dropcast.js"></script>
     </body>
 </html>
